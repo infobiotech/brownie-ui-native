@@ -1,3 +1,4 @@
+// \* LEGGIMI
 // In the consumer app
 npm install react-native-svg
 
