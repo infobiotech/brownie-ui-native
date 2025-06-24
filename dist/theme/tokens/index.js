@@ -1,0 +1,42 @@
+"use strict";
+// import { ReactNode } from "react";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BIcons = void 0;
+// export type BSizes = 'xxs' | 'xs' |'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+// export type BDimension = BSizes | `${number}%` | number;
+// export interface BPropsWithChildren {
+//   children?: ReactNode;
+//   width?: BDimension | 'auto';
+//   height?: BDimension | 'auto';
+//   padding?: BSpacing | 0;
+//   paddingVertical?: BSpacing | 0 | number;
+//   paddingHorizontal?: BSpacing | 0 | number;
+//   margin?: BSpacing | 'auto' | 0 | number;
+//   marginVertical?: BSpacing | 'auto' | 0 | number;
+//   marginHorizontal?: BSpacing | 'auto' | 0 | number;
+//   marginTop?: BSpacing | 'auto' | 0 | number;
+//   marginBottom?: BSpacing | 'auto' | 0 | number;
+//   marginLeft?: BSpacing | 'auto' | 0 | number;
+//   marginRight?: BSpacing | 'auto' | 0 | number;
+//   borderRadius?: BRadius | number;
+//   overflow?: 'hidden';
+// }
+var BIcons;
+(function (BIcons) {
+    BIcons["Home"] = "house";
+    BIcons["Gear"] = "gear";
+    BIcons["Pen"] = "pen";
+    BIcons["History"] = "clock-rotate-left";
+    BIcons["Plus"] = "plus";
+    BIcons["Back"] = "arrow-left";
+    BIcons["Forward"] = "arrow-right";
+    BIcons["Warning"] = "triangle-exclamation";
+    BIcons["Check"] = "check";
+    BIcons["Close"] = "xmark";
+    BIcons["Info"] = "circle-info";
+    BIcons["CircleStop"] = "circle-stop";
+    BIcons["Stop"] = "stop";
+    BIcons["Reload"] = "rotate";
+    BIcons["Spinner"] = "spinner";
+    BIcons["Zoom"] = "magnifying-glass-minus";
+})(BIcons || (exports.BIcons = BIcons = {}));
