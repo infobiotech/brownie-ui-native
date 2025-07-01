@@ -3,7 +3,6 @@ import {
   TouchableOpacity,
   Text,
   StyleSheet,
-  View,
   ActivityIndicator,
 } from "react-native";
 import { useTheme } from "../../../theme/ThemeProvider";
@@ -15,17 +14,12 @@ import {
   getPadding,
   renderChildren,
 } from "../utils";
+import { getRadius } from "../../../theme/tokens/spacing";
+import { getFontSize } from "../../../theme/tokens/typography";
 
 const BButton: React.FC<ButtonProps> = (props) => {
-  const {
-    themeColor,
-    colors,
-    spacing,
-    radius,
-    fontFamilies,
-    fontSizes,
-    fontWeights,
-  } = useTheme();
+  const { themeColor, colors, spacing, radius, fontFamilies, fontWeights } =
+    useTheme();
 
   const {
     action,
@@ -37,11 +31,10 @@ const BButton: React.FC<ButtonProps> = (props) => {
     icon,
     iconPosition = "right",
     children,
-    fullwidth = false,
     primaryColor = themeColor.primary,
     contentColor,
     variant = "light",
-    borderRadius = "sm",
+    borderRadius = radius.sm,
     aspectRatio,
     style,
     contentStyle,
@@ -56,19 +49,16 @@ const BButton: React.FC<ButtonProps> = (props) => {
   );
 
   const classNames = StyleSheet.create({
-    btnContainer: { width: fullwidth ? "100%" : "auto" },
     btn: {
       flexDirection: getFlexDirection(iconPosition),
-      alignSelf: fullwidth ? "auto" : "center",
       alignItems: "center",
       justifyContent: "center",
       gap: spacing.md,
-      // alignSelf: width === 'fit-content' ? 'flex-start' : 'unset',
       backgroundColor: disabled ? colors.gray[2] : getColorsObject.background,
       borderColor: disabled ? colors.gray[1] : getColorsObject.border,
       borderWidth: 2,
       borderStyle: "solid",
-      borderRadius: radius[borderRadius],
+      borderRadius: getRadius(borderRadius),
       paddingVertical:
         aspectRatio === 1 ? spacing.xs : getPadding(size, "v", spacing),
       paddingHorizontal:
@@ -76,10 +66,10 @@ const BButton: React.FC<ButtonProps> = (props) => {
       aspectRatio: aspectRatio,
       ...style,
     },
-    text: {
+    txt: {
       fontFamily: fontFamilies.family,
-      fontSize: fontSize || fontSizes[size],
-      fontWeight: fontWeights.bold,
+      fontSize: getFontSize(size || fontSize),
+      fontWeight: fontWeights.medium,
       color: disabled ? colors.gray[1] : getColorsObject.content,
       ...contentStyle,
     },
@@ -90,30 +80,28 @@ const BButton: React.FC<ButtonProps> = (props) => {
   });
 
   return (
-    <View style={classNames.btnContainer}>
-      <TouchableOpacity
-        onPress={action}
-        disabled={disabled || loading}
-        style={classNames.btn}
-      >
-        {loading ? (
-          <ActivityIndicator color={getColorsObject.content} />
-        ) : (
-          icon && (
-            <FontAwesomeIcon
-              icon={icon}
-              size={iconSize ? fontSizes[iconSize] : fontSizes[size]}
-              style={classNames.icon}
-            />
-          )
-        )}
-        {children && renderChildren(children) === "string" ? (
-          <Text style={classNames.text}>{children}</Text>
-        ) : (
-          children
-        )}
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      onPress={action}
+      disabled={disabled || loading}
+      style={classNames.btn}
+    >
+      {loading ? (
+        <ActivityIndicator color={getColorsObject.content} />
+      ) : (
+        icon && (
+          <FontAwesomeIcon
+            icon={icon}
+            size={getFontSize(iconSize || fontSize || size)}
+            style={classNames.icon}
+          />
+        )
+      )}
+      {children && renderChildren(children) === "string" ? (
+        <Text style={classNames.txt}>{children}</Text>
+      ) : (
+        children
+      )}
+    </TouchableOpacity>
   );
 };
 

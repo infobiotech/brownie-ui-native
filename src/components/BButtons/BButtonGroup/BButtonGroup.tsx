@@ -4,17 +4,11 @@ import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { getColors, getFlexDirection, getPadding } from "../utils";
 import { useTheme } from "../../../theme/ThemeProvider";
 import { Action, ButtonGroupProps } from "./types";
+import { getFontSize } from "../../../theme/tokens/typography";
 
 const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
-  const {
-    themeColor,
-    colors,
-    spacing,
-    radius,
-    fontFamilies,
-    fontSizes,
-    fontWeights,
-  } = useTheme();
+  const { themeColor, colors, spacing, radius, fontFamilies, fontWeights } =
+    useTheme();
 
   const {
     actions,
@@ -30,7 +24,6 @@ const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
     primaryColor = themeColor.primary,
     contentColor,
     variant = "light",
-    borderRadius = "sm",
     style,
     contentStyle,
   } = props;
@@ -54,8 +47,10 @@ const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
       borderColor: disabled ? colors.gray[1] : getColorsObject.border,
       borderWidth: 2,
       borderStyle: "solid",
-      borderRadius: radius[borderRadius],
-      padding: spacing.xxs,
+      borderRadius: radius.md,
+      paddingVertical: spacing.xxs,
+      paddingHorizontal: spacing.xs,
+      ...style,
     },
     btn: {
       flexGrow: fullwidth ? 1 : 0,
@@ -63,22 +58,21 @@ const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
       justifyContent: "center",
       alignItems: "center",
       gap: spacing.sm,
-      borderRadius: radius[borderRadius],
+      borderRadius: radius.sm,
       paddingVertical: getPadding(size, "v", spacing),
       paddingHorizontal: getPadding(size, "h", spacing),
-      ...style,
     },
     active: {
       backgroundColor: disabled
-        ? colors.white
+        ? colors.gray[1]
         : variant !== "outline"
-        ? colors.white
+        ? colors.white[0]
         : getColorsObject.content,
     },
-    text: {
+    txt: {
       fontFamily: fontFamilies.family,
-      fontSize: fontSize || fontSizes[size],
-      fontWeight: fontWeights.bold,
+      fontSize: getFontSize(fontSize || size),
+      fontWeight: fontWeights.medium,
       color: disabled ? colors.gray[1] : getColorsObject.content,
       ...contentStyle,
     },
@@ -88,16 +82,16 @@ const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
     },
     contentActive: {
       color: disabled
-        ? colors.gray[1]
-        : variant !== "outline"
-        ? getColorsObject.content
-        : colors.white,
+        ? colors.gray[2]
+        : variant !== "light"
+        ? getColorsObject.background
+        : getColorsObject.content,
     },
   });
 
   const handleOnClick = (action: Action) => {
     setter(action.value);
-    action.action();
+    action.action && action.action();
   };
 
   return (
@@ -112,7 +106,7 @@ const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
           {action.icon && (
             <FontAwesomeIcon
               icon={action.icon}
-              size={iconSize ? fontSizes[iconSize] : fontSizes[size]}
+              size={getFontSize(iconSize || fontSize || size)}
               style={[
                 classNames.icon,
                 active === action.value && classNames.contentActive,
@@ -122,7 +116,7 @@ const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
           {action.label && (
             <Text
               style={[
-                classNames.text,
+                classNames.txt,
                 active === action.value && classNames.contentActive,
               ]}
             >

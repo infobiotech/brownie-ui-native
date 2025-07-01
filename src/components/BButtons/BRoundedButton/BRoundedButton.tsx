@@ -4,7 +4,7 @@ import { RoundedButtonProps } from "./types";
 import { useTheme } from "../../../theme/ThemeProvider";
 
 const BRoundedButton: React.FC<RoundedButtonProps> = (props) => {
-  const { themeColor } = useTheme();
+  const { themeColor, radius } = useTheme();
 
   const {
     action,
@@ -30,7 +30,7 @@ const BRoundedButton: React.FC<RoundedButtonProps> = (props) => {
       contentColor={contentColor}
       variant={variant}
       aspectRatio={1}
-      borderRadius={"rounded"}
+      borderRadius={radius.rounded}
       style={style}
       contentStyle={contentStyle}
     />

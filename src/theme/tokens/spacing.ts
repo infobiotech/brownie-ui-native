@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react';
-import { Dimensions } from 'react-native';
+import { useEffect, useState } from "react";
+import { Dimensions } from "react-native";
+import { isObjectKey } from ".";
 
-// const guidelineBaseWidth = 600;
 const guidelineBaseWidth = 1100;
 
 export function useScale() {
   const [screenWidth, setScreenWidth] = useState(
-    Dimensions.get('window').width,
+    Dimensions.get("window").width
   );
 
   useEffect(() => {
-    const subscription = Dimensions.addEventListener('change', ({ window }) => {
+    const subscription = Dimensions.addEventListener("change", ({ window }) => {
       setScreenWidth(window.width);
     });
 
@@ -25,11 +25,10 @@ export function useScale() {
 }
 
 // Static scale function (non-hook version, for tokens)
-const screenWidth = Dimensions.get('window').width;
+const screenWidth = Dimensions.get("window").width;
 const scale = (size: number) => (screenWidth / guidelineBaseWidth) * size;
 
 export const BRawSpacings = {
-  none: 0,
   xxs: 3,
   xs: 5,
   sm: 8,
@@ -40,7 +39,6 @@ export const BRawSpacings = {
 };
 
 export const BSpacings = {
-  none: 0,
   xxs: scale(BRawSpacings.xxs),
   xs: scale(BRawSpacings.xs),
   sm: scale(BRawSpacings.sm),
@@ -52,23 +50,18 @@ export const BSpacings = {
 
 export const BRadius = {
   sm: 12,
+  md: 16,
   lg: 20,
   rounded: 100,
 } as const;
 
-export type BSpacingValue = (typeof BSpacings)[keyof typeof BSpacings];
 export type BSpacingKey = keyof typeof BSpacings;
 export type BRadiusKey = keyof typeof BRadius;
 
-// example component
-// import { useScale } from './tokens/spacing';
+export const getSpacing = (value: BSpacingKey | number) => {
+  return isObjectKey(BSpacings, value) ? BSpacings[value] : value;
+};
 
-// function MyComponent() {
-//   const { scale } = useScale();
-
-//   return (
-//     <View style={{ padding: scale(10), margin: scale(15) }}>
-//       {/* content */}
-//     </View>
-//   );
-// }
+export const getRadius = (value: BRadiusKey | number) => {
+  return isObjectKey(BRadius, value) ? BRadius[value] : value;
+};
