@@ -1,9 +1,10 @@
-import { BIcons } from '../../../theme/tokens';
+import { BIcons } from "../../../theme/tokens";
 import {
   BColorKey,
   BColorValue,
   BColorVariantKey,
-} from '../../../theme/tokens/colors';
+} from "../../../theme/tokens/colors";
+import { BFontSizeKey } from "../../../theme/tokens/typography";
 
 export interface RoundedButtonProps {
   // logic
@@ -11,7 +12,7 @@ export interface RoundedButtonProps {
   disabled?: boolean;
   loading?: boolean;
   // content
-  size?: 'sm' | 'md' | 'lg';
+  size?: BFontSizeKey;
   icon: BIcons;
   // style
   primaryColor?: BColorKey | BColorValue;

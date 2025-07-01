@@ -1,12 +1,11 @@
-import { Dispatch, SetStateAction } from 'react';
-import { BIcons } from '../../../theme/tokens';
+import { Dispatch, SetStateAction } from "react";
+import { BIcons } from "../../../theme/tokens";
 import {
   BColorKey,
   BColorValue,
   BColorVariantKey,
-} from '../../../theme/tokens/colors';
-import { BRadiusKey } from '../../../theme/tokens/spacing';
-import { BFontSizeValue } from '../../../theme/tokens/typography';
+} from "../../../theme/tokens/colors";
+import { BFontSizeKey } from "../../../theme/tokens/typography";
 
 export interface Action {
   icon?: BIcons;
@@ -23,16 +22,16 @@ export interface ButtonGroupProps {
   disabled?: boolean;
   loading?: boolean;
   // content
-  size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  fontSize?: BFontSizeValue;
-  iconSize?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  iconPosition?: 'left' | 'right';
+  size?: BFontSizeKey;
+  fontSize?: BFontSizeKey | number;
+  iconSize?: BFontSizeKey | number;
+  iconPosition?: "left" | "right";
   // style
   fullwidth?: boolean;
   primaryColor?: BColorKey | BColorValue;
   contentColor?: BColorKey | BColorValue;
   variant?: BColorVariantKey;
-  borderRadius?: BRadiusKey;
+
   style?: any;
   contentStyle?: any;
 }
