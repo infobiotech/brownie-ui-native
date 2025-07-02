@@ -46,7 +46,7 @@ const BBox: React.FC<BoxProps> = (props) => {
       backgroundColor:
         backgroundColor &&
         `${getColor(backgroundColor)}${
-          backgroundOpacity !== "100" && backgroundOpacity
+          backgroundOpacity !== "100" ? backgroundOpacity : ""
         }`,
       flexDirection: flexDirection,
       justifyContent: justifyContent,
