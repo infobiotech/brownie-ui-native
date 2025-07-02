@@ -52,27 +52,23 @@ const BBox: React.FC<BoxProps> = (props) => {
       justifyContent: justifyContent,
       alignItems: alignItems,
       gap: getSpacing(gap),
-      margin: margin && margin !== "auto" ? getSpacing(margin) : "auto",
+      margin: margin && (margin !== "auto" ? getSpacing(margin) : "auto"),
       marginVertical:
-        marginVertical && marginVertical !== "auto"
-          ? getSpacing(marginVertical)
-          : "auto",
+        marginVertical &&
+        (marginVertical !== "auto" ? getSpacing(marginVertical) : "auto"),
       marginHorizontal:
-        marginHorizontal && marginHorizontal !== "auto"
-          ? getSpacing(marginHorizontal)
-          : "auto",
+        marginHorizontal &&
+        (marginHorizontal !== "auto" ? getSpacing(marginHorizontal) : "auto"),
       marginTop:
-        marginTop && marginTop !== "auto" ? getSpacing(marginTop) : "auto",
+        marginTop && (marginTop !== "auto" ? getSpacing(marginTop) : "auto"),
       marginRight:
-        marginRight && marginRight !== "auto"
-          ? getSpacing(marginRight)
-          : "auto",
+        marginRight &&
+        (marginRight !== "auto" ? getSpacing(marginRight) : "auto"),
       marginBottom:
-        marginBottom && marginBottom !== "auto"
-          ? getSpacing(marginBottom)
-          : "auto",
+        marginBottom &&
+        (marginBottom !== "auto" ? getSpacing(marginBottom) : "auto"),
       marginLeft:
-        marginLeft && marginLeft !== "auto" ? getSpacing(marginLeft) : "auto",
+        marginLeft && (marginLeft !== "auto" ? getSpacing(marginLeft) : "auto"),
       padding: padding && getSpacing(padding),
       paddingVertical: paddingVertical && getSpacing(paddingVertical),
 
