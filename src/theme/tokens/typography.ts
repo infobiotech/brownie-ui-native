@@ -55,13 +55,13 @@ export const BFontFamilies = {
     web: "sans-serif",
     default: "System",
   }),
-  black: undefined,
-  extrabold: undefined,
-  bold: undefined,
-  semibold: undefined,
-  medium: undefined,
-  regular: undefined,
-  light: undefined,
+  black: "",
+  extrabold: "",
+  bold: "",
+  semibold: "",
+  medium: "",
+  regular: "",
+  light: "",
 };
 
 export type BFontSizeValue = (typeof BFontSizes)[keyof typeof BFontSizes];
