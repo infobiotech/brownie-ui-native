@@ -18,7 +18,7 @@ export const defaultTheme = {
     ...BRadius,
   },
   fontFamilies: {
-    family: BFontFamilies.family,
+    ...BFontFamilies,
   },
   fontSizes: {
     ...BFontSizes,
