@@ -14,6 +14,7 @@ export interface ButtonProps {
   disabled?: boolean;
   loading?: boolean;
   // content
+  fullwidth?: boolean;
   size?: BFontSizeKey;
   fontSize?: BFontSizeKey | number;
   iconSize?: BFontSizeKey | number;
@@ -26,6 +27,8 @@ export interface ButtonProps {
   variant?: BColorVariantKey;
   borderRadius?: BRadiusKey | number;
   aspectRatio?: number;
+  shadow?: "light" | "medium" | "dark";
+
   style?: any;
   contentStyle?: any;
 }

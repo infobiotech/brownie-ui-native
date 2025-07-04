@@ -32,6 +32,7 @@ const BBox: React.FC<BoxProps> = (props) => {
     backgroundOpacity = "100",
     borderColor,
     borderRadius,
+    shadow,
     children,
     style,
     ...otherProps
@@ -40,6 +41,20 @@ const BBox: React.FC<BoxProps> = (props) => {
   const dynamicStyle = buildStyleAuto({
     ...otherProps,
   });
+
+  const getShadow = () => {
+    switch (shadow) {
+      case "medium":
+        return 2;
+
+      case "dark":
+        return 3;
+
+      case "light":
+      default:
+        return 1;
+    }
+  };
 
   const classNames = StyleSheet.create({
     box: {
@@ -79,6 +94,7 @@ const BBox: React.FC<BoxProps> = (props) => {
       paddingLeft: paddingLeft && getSpacing(paddingLeft),
       borderRadius: borderRadius && getRadius(borderRadius),
       borderColor: borderColor && getColor(borderColor),
+      elevation: shadow && getShadow(),
       ...style,
       ...dynamicStyle,
     },

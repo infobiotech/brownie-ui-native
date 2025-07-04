@@ -1,8 +1,14 @@
-import { ReactNode } from 'react';
-import { BFontSizeKey, BFontWeightKey } from '../../theme/tokens/typography';
-import { BColorKey, BColorValue } from '../../theme/tokens/colors';
+import { ReactNode } from "react";
+import { BFontSizeKey, BFontWeightKey } from "../../theme/tokens/typography";
+import { BColorKey, BColorValue } from "../../theme/tokens/colors";
 
 export interface TextProps {
+  textAlign?: "auto" | "center" | "left" | "right" | "justify";
+  textAlignVertical?: "auto" | "top" | "bottom" | "center";
+  lineHeight?: number;
+  letterSpacing?: number;
+  textDecorationLine?: BColorKey | BColorValue | string;
+  textTransform?: "none" | "uppercase" | "lowercase" | "capitalize";
   fontSize?: BFontSizeKey | number;
   fontWeight?: BFontWeightKey | number;
   /**

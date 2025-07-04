@@ -15,6 +15,7 @@ const BRoundedButton: React.FC<RoundedButtonProps> = (props) => {
     primaryColor = themeColor.primary,
     contentColor,
     variant = "light",
+    shadow,
     style,
     contentStyle,
   } = props;
@@ -31,6 +32,7 @@ const BRoundedButton: React.FC<RoundedButtonProps> = (props) => {
       variant={variant}
       aspectRatio={1}
       borderRadius={radius.rounded}
+      shadow={shadow}
       style={style}
       contentStyle={contentStyle}
     />
