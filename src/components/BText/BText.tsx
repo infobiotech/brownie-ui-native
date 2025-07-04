@@ -9,6 +9,12 @@ const BText: React.FC<TextProps> = (props) => {
   const { fontFamilies, fontSizes, fontWeights, colors } = useTheme();
 
   const {
+    textAlign,
+    textAlignVertical,
+    lineHeight,
+    letterSpacing,
+    textDecorationLine,
+    textTransform,
     fontSize = fontSizes.xs,
     fontWeight = fontWeights.light,
     fontFamily = fontFamilies.family,
@@ -19,6 +25,12 @@ const BText: React.FC<TextProps> = (props) => {
 
   const classNames = StyleSheet.create({
     txt: {
+      textAlign: textAlign,
+      textAlignVertical: textAlignVertical,
+      lineHeight: lineHeight,
+      letterSpacing: letterSpacing,
+      textDecorationLine: textDecorationLine,
+      textTransform: textTransform,
       fontSize: getFontSize(fontSize),
       fontWeight: getFontWeight(fontWeight),
       fontFamily: fontFamily,

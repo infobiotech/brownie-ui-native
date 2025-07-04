@@ -9,7 +9,8 @@ export const BColors = {
   yellow: ["#ffd20c", "#fffbcb", "#fffde1"],
   green: ["#2bdd66", "#a8f2c0", "#d3f9e0"],
   turquoise: ["#24ddcb", "#a5f2ea", "#cffaf6"],
-  blue: ["#0064e4", "#9ac7ff", "#cde5ff"],
+  // blue: ["#0064e4", "#9ac7ff", "#cde5ff"],
+  blue: ["#2F27CE", "#9ac7ff", "#DCE8FF"],
   violet: ["#7b2eda", "#caaaf1", "#e7d6fb"],
   pink: ["#FF0090", "#ff9bd4", "#ffceec"],
 };
