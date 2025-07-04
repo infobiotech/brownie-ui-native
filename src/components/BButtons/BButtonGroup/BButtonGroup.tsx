@@ -24,6 +24,7 @@ const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
     primaryColor = themeColor.primary,
     contentColor,
     variant = "light",
+    shadow = "light",
     style,
     contentStyle,
   } = props;
@@ -35,6 +36,20 @@ const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
     colors,
     themeColor.primary
   );
+
+  const getShadow = () => {
+    switch (shadow) {
+      case "medium":
+        return 2;
+
+      case "dark":
+        return 3;
+
+      case "light":
+      default:
+        return 1;
+    }
+  };
 
   const classNames = StyleSheet.create({
     btnContainer: {
@@ -50,6 +65,7 @@ const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
       borderRadius: radius.md,
       paddingVertical: spacing.xxs,
       paddingHorizontal: spacing.xs,
+      elevation: shadow && getShadow(),
       ...style,
     },
     btn: {

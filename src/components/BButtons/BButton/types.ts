@@ -27,6 +27,8 @@ export interface ButtonProps {
   variant?: BColorVariantKey;
   borderRadius?: BRadiusKey | number;
   aspectRatio?: number;
+  shadow?: "light" | "medium" | "dark";
+
   style?: any;
   contentStyle?: any;
 }

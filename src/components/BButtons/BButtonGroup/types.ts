@@ -31,6 +31,7 @@ export interface ButtonGroupProps {
   primaryColor?: BColorKey | BColorValue;
   contentColor?: BColorKey | BColorValue;
   variant?: BColorVariantKey;
+  shadow?: "light" | "medium" | "dark";
 
   style?: any;
   contentStyle?: any;

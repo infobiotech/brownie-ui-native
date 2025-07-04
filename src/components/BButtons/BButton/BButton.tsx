@@ -37,9 +37,24 @@ const BButton: React.FC<ButtonProps> = (props) => {
     variant = "light",
     borderRadius = radius.sm,
     aspectRatio,
+    shadow = "light",
     style,
     contentStyle,
   } = props;
+
+  const getShadow = () => {
+    switch (shadow) {
+      case "medium":
+        return 2;
+
+      case "dark":
+        return 3;
+
+      case "light":
+      default:
+        return 1;
+    }
+  };
 
   const getColorsObject = getColors(
     primaryColor,
@@ -66,6 +81,7 @@ const BButton: React.FC<ButtonProps> = (props) => {
       paddingHorizontal:
         aspectRatio === 1 ? spacing.xs : getPadding(size, "h", spacing),
       aspectRatio: aspectRatio,
+      elevation: shadow && getShadow(),
       ...style,
     },
     txt: {

@@ -18,6 +18,8 @@ export interface RoundedButtonProps {
   primaryColor?: BColorKey | BColorValue;
   contentColor?: BColorKey | BColorValue;
   variant?: BColorVariantKey;
+  shadow?: "light" | "medium" | "dark";
+
   style?: any;
   contentStyle?: any;
 }
