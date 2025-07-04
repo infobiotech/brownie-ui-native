@@ -25,6 +25,7 @@ const BButton: React.FC<ButtonProps> = (props) => {
     action,
     disabled,
     loading,
+    fullwidth = false,
     size = "sm",
     fontSize,
     iconSize,
@@ -50,6 +51,7 @@ const BButton: React.FC<ButtonProps> = (props) => {
 
   const classNames = StyleSheet.create({
     btn: {
+      width: fullwidth ? "100%" : "auto",
       flexDirection: getFlexDirection(iconPosition),
       alignItems: "center",
       justifyContent: "center",
