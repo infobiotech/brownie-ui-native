@@ -40,6 +40,10 @@ export interface BoxProps {
   paddingBottom?: Spaces;
   paddingLeft?: Spaces;
   borderWidth?: number;
+  borderTopWidth?: number;
+  borderRightWidth?: number;
+  borderBottomWidth?: number;
+  borderLeftWidth?: number;
 
   // Layout
   display?: "block" | "inline-block" | "flex" | "grid";
@@ -82,6 +86,10 @@ export interface BoxProps {
     | "90"
     | "100";
   borderColor?: BColorKey | BColorValue | string;
+  borderTopColor?: BColorKey | BColorValue | string;
+  borderRightColor?: BColorKey | BColorValue | string;
+  borderBottomColor?: BColorKey | BColorValue | string;
+  borderLeftColor?: BColorKey | BColorValue | string;
   borderRadius?: BRadiusKey | number;
   borderStyle?:
     | "solid"
