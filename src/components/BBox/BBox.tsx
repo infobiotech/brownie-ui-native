@@ -68,26 +68,39 @@ const BBox: React.FC<BoxProps> = (props) => {
       justifyContent: justifyContent,
       alignItems: alignItems,
       gap: getSpacing(gap),
-      margin: margin && (margin !== "auto" ? getSpacing(margin) : "auto"),
-      marginVertical:
-        marginVertical &&
-        (marginVertical !== "auto" ? getSpacing(marginVertical) : "auto"),
-      marginHorizontal:
-        marginHorizontal &&
-        (marginHorizontal !== "auto" ? getSpacing(marginHorizontal) : "auto"),
-      marginTop:
-        marginTop && (marginTop !== "auto" ? getSpacing(marginTop) : "auto"),
-      marginRight:
-        marginRight &&
-        (marginRight !== "auto" ? getSpacing(marginRight) : "auto"),
-      marginBottom:
-        marginBottom &&
-        (marginBottom !== "auto" ? getSpacing(marginBottom) : "auto"),
-      marginLeft:
-        marginLeft && (marginLeft !== "auto" ? getSpacing(marginLeft) : "auto"),
+      margin: margin ? (margin !== "auto" ? getSpacing(margin) : "auto") : 0,
+      marginVertical: marginVertical
+        ? marginVertical !== "auto"
+          ? getSpacing(marginVertical)
+          : "auto"
+        : 0,
+      marginHorizontal: marginHorizontal
+        ? marginHorizontal !== "auto"
+          ? getSpacing(marginHorizontal)
+          : "auto"
+        : 0,
+      marginTop: marginTop
+        ? marginTop !== "auto"
+          ? getSpacing(marginTop)
+          : "auto"
+        : 0,
+      marginRight: marginRight
+        ? marginRight !== "auto"
+          ? getSpacing(marginRight)
+          : "auto"
+        : 0,
+      marginBottom: marginBottom
+        ? marginBottom !== "auto"
+          ? getSpacing(marginBottom)
+          : "auto"
+        : 0,
+      marginLeft: marginLeft
+        ? marginLeft !== "auto"
+          ? getSpacing(marginLeft)
+          : "auto"
+        : 0,
       padding: padding && getSpacing(padding),
       paddingVertical: paddingVertical && getSpacing(paddingVertical),
-
       paddingHorizontal: paddingHorizontal && getSpacing(paddingHorizontal),
       paddingTop: paddingTop && getSpacing(paddingTop),
       paddingRight: paddingRight && getSpacing(paddingRight),
