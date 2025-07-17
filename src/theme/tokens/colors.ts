@@ -1,8 +1,8 @@
 import { isObjectKey, isObjectValue } from ".";
 
 export const BColors = {
-  white: ["#f4f5f6", "#f7f8fa", "#f9f7fa"],
-  black: ["#171717", "#232629", "#1a1a1a"],
+  white: ["#ffffff", "#f5f5f5", "#e7e7e7"],
+  black: ["#1a1c1e", "#232629", "#545454"],
   gray: ["#656565", "#b2b2b2", "#e7e7e7"],
   red: ["#d8070b", "#fba0a0", "#ffd1d1"],
   orange: ["#fc8a08", "#fed09b", "#ffe8cc"],

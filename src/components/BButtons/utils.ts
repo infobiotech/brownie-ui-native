@@ -28,10 +28,12 @@ export const getColors = (
   themeColor: Theme["themeColor"]["primary"]
 ) => {
   if (!primaryColor) primaryColor = themeColor;
+  if (getColor(primaryColor) === colors.white[0]) primaryColor = colors.black;
   let colorsObject = { content: "", border: "", background: "" };
 
   const colorDark = getColor(primaryColor);
-  const colorLight = getColor(primaryColor, 2);
+  const colorLight =
+    colorDark === colors.black[0] ? colors.white[2] : getColor(primaryColor, 2);
   const customContentColor = contentColor ? getColor(contentColor) : "";
 
   colorsObject.content = customContentColor
