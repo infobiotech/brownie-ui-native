@@ -12,7 +12,7 @@ export interface RoundedButtonProps {
   disabled?: boolean;
   loading?: boolean;
   // content
-  size?: BFontSizeKey;
+  size?: BFontSizeKey | number;
   icon: BIcons;
   // style
   primaryColor?: BColorKey | BColorValue;
