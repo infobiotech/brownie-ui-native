@@ -25,6 +25,8 @@ export interface BoxProps {
   // Box Model
   width?: Measurements;
   height?: Measurements;
+  maxWidth?: Measurements;
+  maxHeight?: Measurements;
   margin?: Spaces | "auto";
   marginVertical?: Spaces | "auto";
   marginHorizontal?: Spaces | "auto";

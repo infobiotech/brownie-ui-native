@@ -4,6 +4,7 @@ import { createTheme } from "./createTheme";
 // FONT AWESOME ICONS https://docs.fontawesome.com/web/use-with/react-native
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import { PortalProvider } from "./BPortal/BPortalContext";
 
 const ThemeContext = createContext<Theme>(defaultTheme);
 export const useTheme = () => useContext(ThemeContext);
@@ -16,7 +17,7 @@ const ThemeProvider: React.FC<{
   const mergedTheme = createTheme(theme || {});
   return (
     <ThemeContext.Provider value={mergedTheme}>
-      {children}
+      <PortalProvider>{children}</PortalProvider>
     </ThemeContext.Provider>
   );
 };

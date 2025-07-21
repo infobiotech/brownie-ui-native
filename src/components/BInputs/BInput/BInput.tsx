@@ -7,7 +7,7 @@ import BRoundedButton from "../../BButtons/BRoundedButton/BRoundedButton";
 import BText from "../../BText/BText";
 import { InputProps } from "./types";
 
-export const BInput: React.FC<InputProps> = (props) => {
+const BInput: React.FC<InputProps> = (props) => {
   const {
     themeColor,
     fontSizes,
@@ -118,3 +118,5 @@ export const BInput: React.FC<InputProps> = (props) => {
     </BBox>
   );
 };
+
+export default BInput;

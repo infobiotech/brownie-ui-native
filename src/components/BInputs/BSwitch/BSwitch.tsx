@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
-import { Animated, StyleSheet } from 'react-native';
-import { SwitchProps } from './types';
-import { useTheme } from '../../../theme/ThemeProvider';
-import { getColor } from '../../../theme/tokens/colors';
-import { BButton } from '../../BButtons/BButton/BButton';
+import React, { useEffect, useRef } from "react";
+import { Animated, StyleSheet } from "react-native";
+import { SwitchProps } from "./types";
+import { useTheme } from "../../../theme/ThemeProvider";
+import { getColor } from "../../../theme/tokens/colors";
+import BButton from "../../BButtons/BButton/BButton";
 
-export const BSwitch: React.FC<SwitchProps> = props => {
+const BSwitch: React.FC<SwitchProps> = (props) => {
   const { themeColor, radius, spacing } = useTheme();
 
   const {
@@ -50,8 +50,8 @@ export const BSwitch: React.FC<SwitchProps> = props => {
       borderRadius: radius.rounded,
       paddingVertical: spacing.xxs,
       paddingHorizontal: spacing.xs,
-      justifyContent: 'flex-end',
-      alignItems: 'center',
+      justifyContent: "flex-end",
+      alignItems: "center",
     },
     thumb: {
       width: 22,
@@ -67,10 +67,12 @@ export const BSwitch: React.FC<SwitchProps> = props => {
       action={action}
       disabled={disabled}
       primaryColor={primaryColor}
-      variant={isOn ? 'filled' : 'light'}
+      variant={isOn ? "filled" : "light"}
       style={classNames.track}
     >
       <Animated.View style={classNames.thumb} />
     </BButton>
   );
 };
+
+export default BSwitch;

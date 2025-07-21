@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
-import { ActivityIndicator, Animated, StyleSheet } from 'react-native';
-import { useTheme } from '../../theme/ThemeProvider';
-import { ProgressBarProps } from './types';
-import { BBox } from '../BBox/BBox';
-import { BText } from '../BText/BText';
+import React, { useEffect, useRef } from "react";
+import { ActivityIndicator, Animated, StyleSheet } from "react-native";
+import { useTheme } from "../../theme/ThemeProvider";
+import { ProgressBarProps } from "./types";
+import BBox from "../BBox/BBox";
+import BText from "../BText/BText";
 
-const BProgressBar: React.FC<ProgressBarProps> = props => {
+const BProgressBar: React.FC<ProgressBarProps> = (props) => {
   const { radius, themeColor } = useTheme();
 
   const {
@@ -14,7 +14,7 @@ const BProgressBar: React.FC<ProgressBarProps> = props => {
     color = themeColor.primary,
     totalWidth = 300,
     label,
-    labelPosition = 'bottom',
+    labelPosition = "bottom",
     spinner = true,
   } = props;
 
@@ -23,7 +23,7 @@ const BProgressBar: React.FC<ProgressBarProps> = props => {
   const missingTime = totalTime - elapsedTime;
   const progress = Math.max(
     0,
-    Math.min((totalTime - elapsedTime) / totalTime, 1),
+    Math.min((totalTime - elapsedTime) / totalTime, 1)
   );
 
   useEffect(() => {
@@ -50,18 +50,18 @@ const BProgressBar: React.FC<ProgressBarProps> = props => {
 
   const getFlexDirection = () => {
     switch (labelPosition) {
-      case 'bottom':
+      case "bottom":
       default:
-        return 'column';
+        return "column";
 
-      case 'top':
-        return 'column-reverse';
+      case "top":
+        return "column-reverse";
 
-      case 'left':
-        return 'row-reverse';
+      case "left":
+        return "row-reverse";
 
-      case 'right':
-        return 'row';
+      case "right":
+        return "row";
     }
   };
 
@@ -72,11 +72,11 @@ const BProgressBar: React.FC<ProgressBarProps> = props => {
       flexDirection={getFlexDirection()}
     >
       <BBox
-        width={'100%'}
+        width={"100%"}
         height={12}
         backgroundColor={color[2]}
-        borderRadius={'rounded'}
-        overflow={'hidden'}
+        borderRadius={"rounded"}
+        overflow={"hidden"}
       >
         <Animated.View style={classNames.animatedProgress} />
       </BBox>

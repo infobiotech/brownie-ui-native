@@ -34,3 +34,26 @@ return (
 // fontFamily: "Quicksand-Light",
 // fontSize: 20,
 // },
+
+<!-- MODAL usage -->
+
+// const { openModal } = useModal();
+// const handleOpenModal = () => {
+// openModal({
+// title: 'Sono la modale',
+// confirmAction: () => console.log('Margot'),
+// cancelIconPosition: 'top',
+// confirmLabel: 'Continua',
+// confirmColor: colors.green,
+// cancelColor: colors.orange,
+// buttonsVariant: 'filled',
+// disruptive: true,
+// borderRadius: 'lg',
+// modalBackgroundColor: colors.orange[2],
+// overlayColor: colors.blue[2],
+// children: 'Ciao',
+// });
+// };
+// return (
+// <BButton action={handleOpenModal}>Open Modal</BButton>
+// );
