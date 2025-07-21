@@ -68,6 +68,7 @@ export const BModal: React.FC<ModalProps> = (props) => {
         padding={spacing.xl}
         backgroundColor={modalBackgroundColor}
         borderRadius={borderRadius}
+        shadow="light"
       >
         <BBox
           width={"100%"}

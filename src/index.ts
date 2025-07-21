@@ -8,5 +8,6 @@ export { default as BText } from "./components/BText/BText";
 export { default as ThemeProvider } from "./theme/ThemeProvider";
 export { useTheme } from "./theme/ThemeProvider";
 export { useModal } from "./theme/BPortal/BModal/useModal";
+export { useToast } from "./theme/BPortal/BToast/useToast";
 export { createTheme } from "./theme/createTheme";
 export { BIcons } from "./theme/tokens";

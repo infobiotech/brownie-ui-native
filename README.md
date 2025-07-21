@@ -57,3 +57,22 @@ return (
 // return (
 // <BButton action={handleOpenModal}>Open Modal</BButton>
 // );
+
+<!-- TOAST usage -->
+
+// const { openToast } = useToast();
+// const handleOpenToast = () => {
+// openToast({
+// title: 'Title',
+// description:
+// 'Something happened !!! Lorem .............................................',
+// // timeout: 20000,
+// disruptive: true,
+// // borderRadius: 'lg',
+// primaryColor: colors.blue,
+// });
+// };
+//
+// return (
+// <BButton action={handleOpenToast}>Open Toast</BButton>
+// );
