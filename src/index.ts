@@ -9,5 +9,6 @@ export { default as ThemeProvider } from "./theme/ThemeProvider";
 export { useTheme } from "./theme/ThemeProvider";
 export { useModal } from "./theme/BPortal/BModal/useModal";
 export { useToast } from "./theme/BPortal/BToast/useToast";
+export { useLoader } from "./theme/BPortal/BLoader/useLoader";
 export { createTheme } from "./theme/createTheme";
 export { BIcons } from "./theme/tokens";
