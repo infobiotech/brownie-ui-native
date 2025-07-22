@@ -1,3 +1,4 @@
+export { default as BBanner } from "./components/BBanner/BBanner";
 export { default as BBox } from "./components/BBox/BBox";
 export { default as BButton } from "./components/BButtons/BButton/BButton";
 export { default as BButtonGroup } from "./components/BButtons/BButtonGroup/BButtonGroup";

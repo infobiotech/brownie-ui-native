@@ -1,6 +1,6 @@
-import { usePortal } from '../BPortalContext';
-import BLoader from './BLoader';
-import { LoaderProps } from './types';
+import { usePortal } from "../BPortalContext";
+import { BLoader } from "./BLoader";
+import { LoaderProps } from "./types";
 
 export const useLoader = () => {
   const { addPortal, removePortal } = usePortal();
