@@ -6,6 +6,7 @@ export { default as BRoundedButton } from "./components/BButtons/BRoundedButton/
 export { default as BInput } from "./components/BInputs/BInput/BInput";
 export { default as BSwitch } from "./components/BInputs/BSwitch/BSwitch";
 export { default as BText } from "./components/BText/BText";
+export { default as BDivider } from "./components/BDivider/BDivider";
 export { default as ThemeProvider } from "./theme/ThemeProvider";
 export { useTheme } from "./theme/ThemeProvider";
 export { useModal } from "./theme/BPortal/BModal/useModal";
