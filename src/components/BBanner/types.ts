@@ -4,9 +4,9 @@ import { Action } from "../BButtons/BButtonGroup/types";
 
 export interface BannerProps {
   logoSrc?: string;
-  logoWidth?: number | "auto" | `${number}%`;
-  logoHeight?: number | "auto" | `${number}%`;
-  maxHeight?: number | "auto" | `${number}%`;
+  logoWidth?: string | number;
+  logoHeight?: string | number;
+  maxHeight?: Measurements;
   action?: () => void;
   actionIcon?: BIcons;
   actionSecondary?: () => void;
@@ -18,3 +18,11 @@ export interface BannerProps {
   navControllerSetter?: Dispatch<SetStateAction<string>>;
   children?: ReactNode;
 }
+
+type Measurements =
+  | number
+  | `${number}vw`
+  | `${number}vh`
+  | `${number}%`
+  | "auto"
+  | "fit-content";

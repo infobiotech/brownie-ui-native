@@ -1,13 +1,12 @@
 import React from "react";
-import { StyleSheet } from "react-native";
 import { useTheme } from "../../theme/ThemeProvider";
 import { BIcons } from "../../theme/tokens";
 import BBox from "../BBox/BBox";
 import BButton from "../BButtons/BButton/BButton";
+import BRoundedButton from "../BButtons/BRoundedButton/BRoundedButton";
 import { BannerProps } from "./types";
 import BText from "../BText/BText";
 import BButtonGroup from "../BButtons/BButtonGroup/BButtonGroup";
-import BRoundedButton from "../BButtons/BRoundedButton/BRoundedButton";
 
 const BBanner: React.FC<BannerProps> = (props) => {
   const { spacing, radius, colors, fontSizes, fontWeights } = useTheme();
@@ -28,13 +27,6 @@ const BBanner: React.FC<BannerProps> = (props) => {
     navControllerSetter,
     children,
   } = props;
-
-  const classNames = StyleSheet.create({
-    img: {
-      width: logoWidth,
-      height: logoHeight,
-    },
-  });
 
   return (
     <BBox
@@ -109,7 +101,7 @@ const BBanner: React.FC<BannerProps> = (props) => {
         alignItems="center"
       >
         {logoSrc ? (
-          <img src={logoSrc} style={classNames.img} />
+          <img src={logoSrc} style={{ width: logoWidth, height: logoHeight }} />
         ) : navItems ? (
           children
         ) : (
