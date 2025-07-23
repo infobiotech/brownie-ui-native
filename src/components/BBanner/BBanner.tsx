@@ -15,6 +15,7 @@ const BBanner: React.FC<BannerProps> = (props) => {
     logoSrc,
     logoWidth,
     logoHeight,
+    height,
     maxHeight,
     action,
     actionIcon = BIcons.Back,
@@ -33,8 +34,10 @@ const BBanner: React.FC<BannerProps> = (props) => {
       flexDirection={"row"}
       justifyContent={"center"}
       alignItems={"center"}
+      height={height}
       maxHeight={maxHeight}
     >
+      {!title && !logoSrc && !navItems && children}
       <BBox
         width={200}
         flexDirection={"row"}
@@ -92,7 +95,7 @@ const BBanner: React.FC<BannerProps> = (props) => {
             setter={navControllerSetter}
           />
         )}
-        {!navItems && children}
+        {(title || logoSrc) && !navItems && children}
       </BBox>
       <BBox
         width={200}

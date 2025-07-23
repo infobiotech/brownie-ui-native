@@ -35,7 +35,7 @@ export const BRawSpacings = {
   md: 10,
   lg: 15,
   xl: 20,
-  xxl: 40,
+  xxl: 36,
 };
 
 export const BSpacings = {

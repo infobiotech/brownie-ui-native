@@ -12,7 +12,7 @@ export const scale = (size: number) =>
  * Raw font sizes — unscaled, design-system based.
  */
 export const RawFontSizes = {
-  xxs: 13,
+  xxs: 12,
   xs: 16,
   sm: 18,
   md: 21,

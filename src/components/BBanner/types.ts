@@ -6,6 +6,7 @@ export interface BannerProps {
   logoSrc?: string;
   logoWidth?: string | number;
   logoHeight?: string | number;
+  height?: Measurements;
   maxHeight?: Measurements;
   action?: () => void;
   actionIcon?: BIcons;

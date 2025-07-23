@@ -12,6 +12,9 @@ const BProgressBar: React.FC<ProgressBarProps> = (props) => {
     totalTime,
     elapsedTime,
     color = themeColor.primary,
+    trackColor = color,
+    thumbColor = color,
+    spinnerColor = color,
     totalWidth = 300,
     label,
     labelPosition = "bottom",
@@ -43,7 +46,7 @@ const BProgressBar: React.FC<ProgressBarProps> = (props) => {
     animatedProgress: {
       width: interpolatedWidth,
       height: 12,
-      backgroundColor: color[0],
+      backgroundColor: thumbColor[0] || color[0],
       borderRadius: radius.rounded,
     },
   });
@@ -72,9 +75,11 @@ const BProgressBar: React.FC<ProgressBarProps> = (props) => {
       flexDirection={getFlexDirection()}
     >
       <BBox
-        width={"100%"}
+        flexGrow={1}
         height={12}
-        backgroundColor={color[2]}
+        backgroundColor={trackColor[2] || color[2]}
+        borderColor={thumbColor[2]}
+        borderWidth={0.1}
         borderRadius={"rounded"}
         overflow={"hidden"}
       >
@@ -82,8 +87,10 @@ const BProgressBar: React.FC<ProgressBarProps> = (props) => {
       </BBox>
       {(label || spinner) && (
         <BBox flexDirection="row" alignItems="center">
-          {label && <BText>Progress: {label}</BText>}
-          {spinner && missingTime > 0 && <ActivityIndicator color={color[0]} />}
+          {label && <BText>{label}</BText>}
+          {spinner && missingTime > 0 && (
+            <ActivityIndicator color={spinnerColor[0] || color[0]} />
+          )}
         </BBox>
       )}
     </BBox>
