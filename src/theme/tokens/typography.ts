@@ -13,11 +13,11 @@ export const scale = (size: number) =>
  */
 export const RawFontSizes = {
   xxs: 12,
-  xs: 16,
-  sm: 18,
-  md: 21,
-  lg: 24,
-  xl: 30,
+  xs: 14,
+  sm: 16,
+  md: 18,
+  lg: 21,
+  xl: 24,
 };
 
 /**

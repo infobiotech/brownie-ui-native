@@ -10,7 +10,7 @@ import { Image, ImageSourcePropType } from "react-native";
 import { BIcons } from "../../theme/tokens";
 
 const BBanner: React.FC<BannerProps> = (props) => {
-  const { spacing, radius, colors, fontSizes, fontWeights } = useTheme();
+  const { spacing, radius, colors, fontWeights } = useTheme();
 
   const {
     logoSrc,
@@ -76,11 +76,7 @@ const BBanner: React.FC<BannerProps> = (props) => {
           actionSecondaryIcon,
           actionSecondaryLabel
         )}
-        {title && (
-          <BText fontSize={fontSizes.sm} fontWeight={fontWeights.bold}>
-            {title}
-          </BText>
-        )}
+        {title && <BText fontWeight={fontWeights.bold}>{title}</BText>}
       </BBox>
     );
   };

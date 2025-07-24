@@ -49,7 +49,7 @@ const BInput: React.FC<InputProps> = (props) => {
     input: {
       width: width - 60,
       padding: 0,
-      fontSize: fontSizes.xs,
+      fontSize: fontSizes.sm,
       fontFamily: fontFamilies.family,
     },
   });
@@ -108,7 +108,7 @@ const BInput: React.FC<InputProps> = (props) => {
         <BText
           fontWeight={isLimitReached ? fontWeights.semibold : fontWeights.light}
           color={isLimitReached ? colors.red : themeColor.primary}
-          fontSize={fontSizes.xxs}
+          fontSize={fontSizes.xs}
         >
           {isLimitReached
             ? "Character limit exceeded"

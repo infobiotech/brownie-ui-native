@@ -20,7 +20,7 @@ const BText: React.FC<TextProps> = (props) => {
     letterSpacing,
     textDecorationLine,
     textTransform,
-    fontSize = fontSizes.xs,
+    fontSize = fontSizes.sm,
     fontWeight = fontWeights.light,
     fontFamily,
     color = colors.gray[0],
