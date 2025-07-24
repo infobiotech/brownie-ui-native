@@ -6,9 +6,9 @@ const BDivider: React.FC<DividerProps> = (props) => {
   const { themeColor } = useTheme();
 
   const {
-    fullLenght = true,
     orientation = "vertical",
-    length = 100,
+    length,
+    fullLenght = length ? false : true,
     thickness = 2,
     color = themeColor.primary[2],
   } = props;
