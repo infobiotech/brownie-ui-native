@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { BRadiusKey, BSpacingKey } from "../../theme/tokens/spacing";
 import { BColorKey, BColorValue } from "../../theme/tokens/colors";
 
-type FlexAlignRules =
+export type FlexAlignRules =
   | "center"
   | "flex-start"
   | "flex-end"
@@ -104,7 +104,7 @@ export interface BoxProps {
     | "outset";
   opacity?: number;
   aspectRatio?: number;
-  shadow?: "light" | "medium" | "dark";
+  shadow?: "light" | "medium" | "dark" | "none";
 
   // Box
   children?: ReactNode;

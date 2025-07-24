@@ -4,6 +4,7 @@ import { useTheme } from "../../theme/ThemeProvider";
 import { ProgressBarProps } from "./types";
 import BBox from "../BBox/BBox";
 import BText from "../BText/BText";
+import { FlexAlignRules } from "../BBox/types";
 
 const BProgressBar: React.FC<ProgressBarProps> = (props) => {
   const { radius, themeColor } = useTheme();
@@ -51,28 +52,47 @@ const BProgressBar: React.FC<ProgressBarProps> = (props) => {
     },
   });
 
-  const getFlexDirection = () => {
+  type flexObject = {
+    align: FlexAlignRules;
+    direction: "row" | "column" | "row-reverse" | "column-reverse";
+  };
+
+  const getFlex = () => {
+    let flexObject: flexObject = { align: "stretch", direction: "column" };
+
     switch (labelPosition) {
       case "bottom":
       default:
-        return "column";
+        flexObject.align = "stretch";
+        flexObject.direction = "column";
+        break;
 
       case "top":
-        return "column-reverse";
+        flexObject.align = "stretch";
+        flexObject.direction = "column-reverse";
+        break;
 
       case "left":
-        return "row-reverse";
+        flexObject.align = "center";
+        flexObject.direction = "row-reverse";
+        break;
 
       case "right":
-        return "row";
+        flexObject.align = "center";
+        flexObject.direction = "row";
+        break;
     }
+
+    return flexObject;
   };
+
+  const getFlexObject = getFlex();
 
   return (
     <BBox
       width={totalWidth}
-      alignItems="center"
-      flexDirection={getFlexDirection()}
+      alignItems={getFlexObject.align}
+      flexDirection={getFlexObject.direction}
     >
       <BBox
         flexGrow={1}
@@ -86,7 +106,7 @@ const BProgressBar: React.FC<ProgressBarProps> = (props) => {
         <Animated.View style={classNames.animatedProgress} />
       </BBox>
       {(label || spinner) && (
-        <BBox flexDirection="row" alignItems="center">
+        <BBox flexDirection="row" alignItems="center" justifyContent="center">
           {label && <BText>{label}</BText>}
           {spinner && missingTime > 0 && (
             <ActivityIndicator color={spinnerColor[0] || color[0]} />

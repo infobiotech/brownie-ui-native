@@ -45,6 +45,9 @@ const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
       case "dark":
         return 3;
 
+      case "none":
+        return 0;
+
       case "light":
       default:
         return 1;
