@@ -2,7 +2,12 @@ import React from "react";
 import { useTheme } from "../../theme/ThemeProvider";
 import { TextProps } from "./types";
 import { StyleSheet, Text } from "react-native";
-import { getFontSize, getFontWeight } from "../../theme/tokens/typography";
+import {
+  getCustomWeight,
+  getFontSize,
+  getFontWeight,
+  isCustomFontFamily,
+} from "../../theme/tokens/typography";
 import { getColor } from "../../theme/tokens/colors";
 
 const BText: React.FC<TextProps> = (props) => {
@@ -17,11 +22,15 @@ const BText: React.FC<TextProps> = (props) => {
     textTransform,
     fontSize = fontSizes.xs,
     fontWeight = fontWeights.light,
-    fontFamily = fontFamilies.family,
+    fontFamily,
     color = colors.gray[0],
     style,
     children,
   } = props;
+
+  const resolvedFontFamily = isCustomFontFamily(fontFamilies)
+    ? getCustomWeight(fontWeight, fontFamilies)
+    : fontFamilies.family;
 
   const classNames = StyleSheet.create({
     txt: {
@@ -32,8 +41,8 @@ const BText: React.FC<TextProps> = (props) => {
       textDecorationLine: textDecorationLine,
       textTransform: textTransform,
       fontSize: getFontSize(fontSize),
-      fontWeight: getFontWeight(fontWeight),
-      fontFamily: fontFamily,
+      fontWeight: isCustomFontFamily(fontFamilies) ? "unset" : fontWeight,
+      fontFamily: fontFamily || resolvedFontFamily,
       color: getColor(color),
       ...style,
     },

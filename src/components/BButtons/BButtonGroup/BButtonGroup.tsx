@@ -5,10 +5,10 @@ import { getColors, getFlexDirection, getPadding } from "../utils";
 import { useTheme } from "../../../theme/ThemeProvider";
 import { Action, ButtonGroupProps } from "./types";
 import { getFontSize } from "../../../theme/tokens/typography";
+import BText from "../../BText/BText";
 
 const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
-  const { themeColor, colors, spacing, radius, fontFamilies, fontWeights } =
-    useTheme();
+  const { themeColor, colors, spacing, radius, fontWeights } = useTheme();
 
   const {
     actions,
@@ -89,10 +89,6 @@ const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
         : getColorsObject.content,
     },
     txt: {
-      fontFamily: fontFamilies.family,
-      fontSize: getFontSize(fontSize || size),
-      fontWeight: fontWeights.medium,
-      color: disabled ? colors.gray[1] : getColorsObject.content,
       ...contentStyle,
     },
     icon: {
@@ -133,14 +129,17 @@ const BButtonGroup: React.FC<ButtonGroupProps> = (props) => {
             />
           )}
           {action.label && (
-            <Text
+            <BText
+              fontSize={getFontSize(fontSize || size)}
+              fontWeight={fontWeights.medium}
+              color={disabled ? colors.gray[1] : getColorsObject.content}
               style={[
                 classNames.txt,
                 active === action.value && classNames.contentActive,
               ]}
             >
               {action.label}
-            </Text>
+            </BText>
           )}
         </TouchableOpacity>
       ))}

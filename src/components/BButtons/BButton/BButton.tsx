@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  TouchableOpacity,
-  Text,
-  StyleSheet,
-  ActivityIndicator,
-} from "react-native";
+import { TouchableOpacity, StyleSheet, ActivityIndicator } from "react-native";
 import { useTheme } from "../../../theme/ThemeProvider";
 import { ButtonProps } from "./types";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
@@ -16,10 +11,10 @@ import {
 } from "../utils";
 import { getRadius } from "../../../theme/tokens/spacing";
 import { getFontSize } from "../../../theme/tokens/typography";
+import BText from "../../BText/BText";
 
 const BButton: React.FC<ButtonProps> = (props) => {
-  const { themeColor, colors, spacing, radius, fontFamilies, fontWeights } =
-    useTheme();
+  const { themeColor, colors, spacing, radius, fontWeights } = useTheme();
 
   const {
     action,
@@ -88,10 +83,6 @@ const BButton: React.FC<ButtonProps> = (props) => {
       ...style,
     },
     txt: {
-      fontFamily: fontFamilies.family,
-      fontSize: getFontSize(size || fontSize),
-      fontWeight: fontWeights.medium,
-      color: disabled ? colors.gray[1] : getColorsObject.content,
       ...contentStyle,
     },
     icon: {
@@ -118,7 +109,14 @@ const BButton: React.FC<ButtonProps> = (props) => {
         )
       )}
       {children && renderChildren(children) === "string" ? (
-        <Text style={classNames.txt}>{children}</Text>
+        <BText
+          fontSize={getFontSize(fontSize || size)}
+          fontWeight={fontWeights.medium}
+          color={disabled ? colors.gray[1] : getColorsObject.content}
+          style={classNames.txt}
+        >
+          {children}
+        </BText>
       ) : (
         children
       )}
