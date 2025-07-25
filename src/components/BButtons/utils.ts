@@ -63,16 +63,16 @@ export const getPadding = (
     case "xxs":
       return spacing.xs;
     case "xs":
-      return o === "v" ? spacing.xs : spacing.sm;
+      return o === "v" ? spacing.xxs : spacing.sm;
     case "sm":
-      return o === "v" ? spacing.sm : spacing.md;
+      return o === "v" ? spacing.xxs : spacing.md;
     case "md":
-      return o === "v" ? spacing.md : spacing.lg;
+      return o === "v" ? spacing.xs : spacing.lg;
     case "lg":
-      return o === "v" ? spacing.lg : spacing.xl;
+      return o === "v" ? spacing.sm : spacing.xl;
     case "xl":
-      return spacing.xl;
+      return o === "v" ? spacing.md : spacing.xl;
     default:
-      return o === "v" ? spacing.sm : spacing.md;
+      return o === "v" ? spacing.xxs : spacing.md;
   }
 };

@@ -36,7 +36,7 @@ const BText: React.FC<TextProps> = (props) => {
     txt: {
       textAlign: textAlign,
       textAlignVertical: textAlignVertical,
-      lineHeight: lineHeight,
+      lineHeight: lineHeight || getFontSize(fontSize) + 10,
       letterSpacing: letterSpacing,
       textDecorationLine: textDecorationLine,
       textTransform: textTransform,

@@ -8,36 +8,30 @@ const BDivider: React.FC<DividerProps> = (props) => {
   const {
     orientation = "vertical",
     length,
-    fullLenght = length ? false : true,
+    fullLength = !length,
     thickness = 2,
     color = themeColor.primary[2],
   } = props;
 
+  const isHorizontal = orientation === "horizontal";
+
   return (
     <BBox
-      flexDirection={orientation === "horizontal" ? "row" : "column"}
-      alignItems="stretch"
-      width={orientation === "horizontal" && fullLenght ? "100%" : "auto"}
-      height={orientation === "vertical" && fullLenght ? "100%" : "auto"}
+      flexDirection={isHorizontal ? "row" : "column"}
+      alignItems={"center"}
+      justifyContent="center"
+      flexGrow={fullLength ? 1 : 0}
+      width={isHorizontal ? length : thickness}
+      maxWidth={isHorizontal ? length : thickness}
+      height={isHorizontal ? thickness : length}
+      maxHeight={isHorizontal ? thickness : length}
     >
       <BBox
-        flexGrow={fullLenght ? 1 : 0}
         backgroundColor={color}
-        width={
-          orientation === "horizontal"
-            ? fullLenght
-              ? "auto"
-              : length
-            : thickness
-        }
-        height={
-          orientation === "horizontal"
-            ? thickness
-            : fullLenght
-            ? "auto"
-            : length
-        }
         borderRadius={"lg"}
+        flexGrow={1}
+        width={isHorizontal ? "auto" : thickness}
+        height={isHorizontal ? thickness : "auto"}
       />
     </BBox>
   );
