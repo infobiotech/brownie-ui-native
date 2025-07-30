@@ -1,6 +1,9 @@
 export enum BIcons {
   Back = "arrow-left",
+  CaretDown = "caret-down",
+  CaretUp = "caret-up",
   Check = "check",
+  CircleDown = "circle-down",
   CircleStop = "circle-stop",
   Close = "xmark",
   Forward = "arrow-right",

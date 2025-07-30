@@ -38,6 +38,8 @@ const BButton: React.FC<ButtonProps> = (props) => {
   } = props;
 
   const getShadow = () => {
+    if (disabled || !shadow) return 0;
+
     switch (shadow) {
       case "medium":
         return 2;
@@ -70,8 +72,8 @@ const BButton: React.FC<ButtonProps> = (props) => {
       justifyContent: "center",
       gap: spacing.md,
       backgroundColor: disabled ? colors.gray[2] : getColorsObject.background,
-      borderColor: disabled ? colors.gray[1] : getColorsObject.border,
-      borderWidth: 2,
+      borderColor: getColorsObject.border,
+      borderWidth: disabled ? 0 : 2,
       borderStyle: "solid",
       borderRadius: getRadius(borderRadius),
       paddingVertical:
@@ -79,7 +81,7 @@ const BButton: React.FC<ButtonProps> = (props) => {
       paddingHorizontal:
         aspectRatio === 1 ? spacing.xs : getPadding(size, "h", spacing),
       aspectRatio: aspectRatio,
-      elevation: shadow && getShadow(),
+      elevation: getShadow(),
       ...style,
     },
     txt: {

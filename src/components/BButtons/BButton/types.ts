@@ -22,8 +22,8 @@ export interface ButtonProps {
   iconPosition?: "left" | "right";
   children?: ReactNode;
   // style
-  primaryColor?: BColorKey | BColorValue;
-  contentColor?: BColorKey | BColorValue;
+  primaryColor?: BColorKey | BColorValue | string;
+  contentColor?: BColorKey | BColorValue | string;
   variant?: BColorVariantKey;
   borderRadius?: BRadiusKey | number;
   aspectRatio?: number;
