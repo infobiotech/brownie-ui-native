@@ -7,7 +7,6 @@ export interface ProgressBarProps {
   trackColor?: BColorKey | BColorValue;
   thumbColor?: BColorKey | BColorValue;
   spinnerColor?: BColorKey | BColorValue;
-  totalWidth?: number;
   label?: string;
   labelPosition?: "top" | "right" | "bottom" | "left";
   spinner?: boolean;

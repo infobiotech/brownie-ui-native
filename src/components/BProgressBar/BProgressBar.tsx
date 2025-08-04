@@ -1,5 +1,11 @@
-import React, { useEffect, useRef } from "react";
-import { ActivityIndicator, Animated, StyleSheet } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  ActivityIndicator,
+  Animated,
+  LayoutChangeEvent,
+  StyleSheet,
+  View,
+} from "react-native";
 import { useTheme } from "../../theme/ThemeProvider";
 import { ProgressBarProps } from "./types";
 import BBox from "../BBox/BBox";
@@ -16,7 +22,6 @@ const BProgressBar: React.FC<ProgressBarProps> = (props) => {
     trackColor = color,
     thumbColor = color,
     spinnerColor = color,
-    totalWidth = 300,
     label,
     labelPosition = "bottom",
     spinner = true,
@@ -38,9 +43,11 @@ const BProgressBar: React.FC<ProgressBarProps> = (props) => {
     }).start();
   }, [progress, widthAnim]);
 
+  const [containerWidth, setContainerWidth] = useState(1);
+
   const interpolatedWidth = widthAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: [totalWidth, 0],
+    outputRange: [containerWidth, 0],
   });
 
   const classNames = StyleSheet.create({
@@ -90,7 +97,6 @@ const BProgressBar: React.FC<ProgressBarProps> = (props) => {
 
   return (
     <BBox
-      width={totalWidth}
       alignItems={getFlexObject.align}
       flexDirection={getFlexObject.direction}
     >
@@ -103,7 +109,15 @@ const BProgressBar: React.FC<ProgressBarProps> = (props) => {
         borderRadius={"rounded"}
         overflow={"hidden"}
       >
-        <Animated.View style={classNames.animatedProgress} />
+        <View
+          style={{ width: "100%" }}
+          onLayout={(event: LayoutChangeEvent) => {
+            const { width } = event.nativeEvent.layout;
+            setContainerWidth(width);
+          }}
+        >
+          <Animated.View style={classNames.animatedProgress} />
+        </View>
       </BBox>
       {(label || spinner) && (
         <BBox flexDirection="row" alignItems="center" justifyContent="center">
@@ -118,3 +132,15 @@ const BProgressBar: React.FC<ProgressBarProps> = (props) => {
 };
 
 export default BProgressBar;
+
+// tested with:
+// const [elapsedTime, setElapsedTime] = useState(0);
+// const totalTime = 10;
+
+// useEffect(() => {
+//   const interval = setInterval(() => {
+//     setElapsedTime(prev => prev + 1);
+//   }, 1000);
+
+//   return () => clearInterval(interval);
+// }, []);
