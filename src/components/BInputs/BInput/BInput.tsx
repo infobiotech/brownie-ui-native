@@ -33,6 +33,7 @@ const BInput: React.FC<InputProps> = (props) => {
     disabled,
     multiline,
     width = 280,
+    size = "sm",
     borderRadius = radius.sm,
   } = props;
 
@@ -47,9 +48,9 @@ const BInput: React.FC<InputProps> = (props) => {
 
   const classNames = StyleSheet.create({
     input: {
-      width: width - 60,
+      width: size === "sm" ? width - 60 : width - 55,
       padding: 0,
-      fontSize: fontSizes.sm,
+      fontSize: size === "sm" ? fontSizes.sm : fontSizes.xs,
       fontFamily: fontFamilies.family,
     },
   });
@@ -77,7 +78,8 @@ const BInput: React.FC<InputProps> = (props) => {
         borderColor={themeColor.primary[2]}
         borderWidth={1}
         borderRadius={borderRadius}
-        padding={spacing.sm}
+        paddingHorizontal={spacing.sm}
+        paddingVertical={size === "sm" ? spacing.sm : spacing.xs}
       >
         <TextInput
           style={classNames.input}

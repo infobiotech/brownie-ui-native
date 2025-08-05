@@ -20,5 +20,6 @@ export interface InputProps {
   multiline?: boolean;
 
   width?: number;
+  size?: "xs" | "sm";
   borderRadius?: BRadiusKey;
 }
