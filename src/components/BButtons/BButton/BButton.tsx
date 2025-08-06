@@ -33,6 +33,8 @@ const BButton: React.FC<ButtonProps> = (props) => {
     borderRadius = radius.sm,
     aspectRatio,
     shadow = "light",
+    isClickThrough = false,
+
     style,
     contentStyle,
   } = props;
@@ -83,6 +85,7 @@ const BButton: React.FC<ButtonProps> = (props) => {
       aspectRatio: aspectRatio,
       elevation: getShadow(),
       opacity: disabled ? 0.5 : 1,
+      pointerEvents: isClickThrough ? "none" : "auto",
       ...style,
     },
     txt: {

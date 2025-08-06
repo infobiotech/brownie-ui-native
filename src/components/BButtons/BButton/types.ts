@@ -28,6 +28,7 @@ export interface ButtonProps {
   borderRadius?: BRadiusKey | number;
   aspectRatio?: number;
   shadow?: "light" | "medium" | "dark" | "none";
+  isClickThrough?: boolean;
 
   style?: any;
   contentStyle?: any;
